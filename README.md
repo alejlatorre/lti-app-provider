@@ -5,20 +5,22 @@
 ```markdown
 lti-provider/
 ├── app/
-│ ├── **init**.py
+│ ├── __init__.py
 │ ├── main.py
 │ ├── config.py
 │ ├── models/
-│ │ ├── **init**.py
+│ │ ├── __init__.py
 │ │ ├── database.py
 │ │ └── lti.py
 │ ├── routes/
-│ │ ├── **init**.py
+│ │ ├── __init__.py
 │ │ └── lti.py
 │ └── services/
-│ ├── **init**.py
+│ ├── __init__.py
 │ └── lti.py
-├── requirements.txt
+├── pyproject.toml
+├── poetry.lock
+├── .tool-versions
 └── .env.example
 ```
 # lti-app-provider
