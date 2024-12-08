@@ -18,6 +18,8 @@ python-multipart = "^0.0.19"
 python-dotenv = "^1.0.1"
 python-jose = { version = "^3.3.0", extras = ["cryptography"] }
 httpx = { version = "^0.28.1", extras = ["http2"] }
+asyncpg = "^0.30.0"
+greenlet = "^3.1.1"
 
 
 [build-system]

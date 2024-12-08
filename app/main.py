@@ -4,16 +4,17 @@ from fastapi import FastAPI
 
 from app.config import settings
 from app.models.database import init_db
-from app.routes import home_app, lti
+from app.routes.home import router as home_router
+from app.routes.lti import router as lti_router
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    init_db()
+    await init_db()
     yield
 
 
-home = FastAPI(title=settings.APP_NAME, debug=settings.DEBUG_MODE, lifespan=lifespan)
+app = FastAPI(title=settings.APP_NAME, debug=settings.DEBUG_MODE, lifespan=lifespan)
 
-home.include_router(lti.router)
-home.include_router(home_app.router)
+app.include_router(lti_router)
+app.include_router(home_router)
