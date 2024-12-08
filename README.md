@@ -1,4 +1,4 @@
-# LTI App
+# LTI app provider
 
 ## Folder structure
 
@@ -23,4 +23,3 @@ lti-provider/
 ├── .tool-versions
 └── .env.example
 ```
-# lti-app-provider
