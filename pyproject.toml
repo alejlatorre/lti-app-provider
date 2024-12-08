@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "lti-app-provider"
+name = "lti-provider"
 version = "0.1.0"
 description = ""
 authors = ["Alejandro Latorre Rojas <alej669@gmail.com>"]
