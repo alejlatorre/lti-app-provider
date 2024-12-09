@@ -14,10 +14,10 @@ async def home_app(request: Request):
             <title>Test LTI Tool</title>
         </head>
         <body>
-            <h1>LTI Tool</h1>
+            <h1>uDocz POC LTI Tool</h1>
             <div id="app">
                 <!-- Your LTI interface will go here -->
-                <p>Successfully launched from Canvas!</p>
+                <p>Successfully logged in to uDocz POC LTI Tool!</p>
             </div>
         </body>
     </html>

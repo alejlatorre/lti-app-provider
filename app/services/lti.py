@@ -1,6 +1,9 @@
+import base64
 import secrets
 
 import httpx
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.asymmetric import rsa
 from fastapi import HTTPException
 from jose import jwt
 
@@ -8,6 +11,34 @@ from app.config import settings
 
 
 class LTIService:
+    def __init__(self):
+        # Generate or load RSA key pair
+        self.private_key = rsa.generate_private_key(
+            public_exponent=65537, key_size=2048, backend=default_backend()
+        )
+        self.public_key = self.private_key.public_key()
+
+    def get_public_jwk(self):
+        """Generate JWK from public key"""
+        numbers = self.public_key.public_numbers()
+
+        # Convert numbers to base64url format
+        e = base64.urlsafe_b64encode(
+            numbers.e.to_bytes((numbers.e.bit_length() + 7) // 8, byteorder="big")
+        )
+        n = base64.urlsafe_b64encode(
+            numbers.n.to_bytes((numbers.n.bit_length() + 7) // 8, byteorder="big")
+        )
+
+        return {
+            "kty": "RSA",
+            "alg": "RS256",
+            "use": "sig",
+            "kid": "1",  # Key ID
+            "n": n.decode("utf-8").rstrip("="),
+            "e": e.decode("utf-8").rstrip("="),
+        }
+
     async def validate_login(self, form_data: dict) -> dict:
         """Validate the OIDC login initiation request"""
         required_params = [
