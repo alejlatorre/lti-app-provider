@@ -2,6 +2,22 @@
 
 A FastAPI-based Learning Tools Interoperability (LTI) 1.3 provider implementation.
 
+## About
+
+LTI Provider is a FastAPI-based implementation of the Learning Tools Interoperability (LTI) 1.3 standard, designed to facilitate seamless integration of external learning tools within Learning Management Systems (LMS) like Canvas. This application supports OIDC (OpenID Connect) for secure authentication and JWT (JSON Web Tokens) for message signing, ensuring a robust and secure connection between the LMS and external tools.
+
+Key Features:
+
+- LTI 1.3 Compliance: Fully compliant with the LTI 1.3 standard, enabling secure tool launches and user authentication.
+- Dynamic Configuration: Automatically generates configuration settings for easy integration with Canvas.
+- JWT Validation: Utilizes JSON Web Tokens for secure communication and user identity verification.
+- CORS Support: Configured to allow requests from Canvas, ensuring smooth operation within the LMS environment.
+- Local Development: Easy setup for local testing with Docker and ngrok support.
+
+This project is ideal for developers looking to create and integrate educational tools into existing LMS platforms, enhancing the learning experience for students and educators alike.
+
+Feel free to modify any part of it to better fit your project's vision or specific features!
+
 ## Technical Overview
 
 ### LTI 1.3 Protocol Flow
